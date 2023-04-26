@@ -14,7 +14,7 @@ import {
   Brightness4,
   Brightness7,
 } from '@mui/icons-material';
-import { Sidebar } from '../';
+import { Sidebar } from '..';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
@@ -25,6 +25,11 @@ const NavBar = () => {
   const isMobile = useMediaQuery('(max-width: 600px)');
   const theme = useTheme();
   const isAuthenticated = true;
+  const hideBackdropStyle = {
+    '.MuiBackdrop-root': {
+      display: 'none',
+    },
+  };
 
   return (
     <>
@@ -35,7 +40,7 @@ const NavBar = () => {
               color="inherit"
               edge="start"
               style={{ outline: 'none' }}
-              onClick={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
+              onClick={() => {}}
               className={classes.menuButton}
             >
               <Menu />
@@ -80,9 +85,10 @@ const NavBar = () => {
               variant="temporary"
               anchor="right"
               open={mobileOpen}
-              onClose={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
               classes={{ paper: classes.drawerPaper }}
               ModalProps={{ keepMounted: true }}
+              sx={{ hideBackdropStyle }}
+              BackdropProps={{ invisible: true }}
             >
               <Sidebar setMobileOpen={setMobileOpen} />
             </Drawer>
@@ -93,7 +99,6 @@ const NavBar = () => {
               variant="temporary"
               open
               classes={{ paper: classes.drawerPaper }}
-              BackdropProps={{ invisible: true }}
             >
               <Sidebar setMobileOpen={setMobileOpen} />
             </Drawer>
