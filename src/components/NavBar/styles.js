@@ -39,10 +39,6 @@ export default makeStyles((theme) => ({
     // border: '1rem dotted red',
   },
   desktopDrawer: {
-    // position: 'relative',
-    // zIndex: 1000000000,
-    // border: '.5rem dotted blue',
-    // minHeight: '100vh',
     minHeight: '300vh',
     // boxShadow: '2px 2px 8px #e7e7e7',
     boxShadow: '4px 0px 8px 0px #e7e7e7',
