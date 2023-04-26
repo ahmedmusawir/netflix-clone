@@ -37,7 +37,7 @@ const Sidebar = ({ setMobileOpen }) => {
     'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png';
 
   return (
-    <>
+    <div>
       <Link to={'/'} className={classes.imageLink}>
         <img
           src={theme.palette.mode === 'light' ? redLogo : blueLogo}
@@ -83,7 +83,7 @@ const Sidebar = ({ setMobileOpen }) => {
           </Link>
         ))}
       </List>
-    </>
+    </div>
   );
 };
 

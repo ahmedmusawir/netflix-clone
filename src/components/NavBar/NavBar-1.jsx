@@ -7,7 +7,6 @@ import {
   Button,
   Avatar,
   useMediaQuery,
-  Box,
 } from '@mui/material';
 import {
   Menu,
@@ -74,7 +73,7 @@ const NavBar = () => {
           {isMobile && 'Search...'}
         </Toolbar>
       </AppBar>
-      <div className={classes.sidebarContainer}>
+      <div>
         <nav className={classes.drawer}>
           {isMobile && (
             <Drawer
@@ -88,10 +87,25 @@ const NavBar = () => {
               <Sidebar setMobileOpen={setMobileOpen} />
             </Drawer>
           )}
+
           {!isMobile && (
-            <Box className={classes.desktopDrawer}>
+            <Drawer
+              variant="temporary"
+              open
+              classes={{ paper: classes.drawerPaper }}
+              docked={true}
+              // ModalProps={{
+              //   hideBackdrop: true,
+              // }}
+              // hideBackdrop
+              BackdropProps={{ invisible: true }}
+              // ModalProps={{
+              //   BackdropComponent: () => <></>, // Empty component
+              //   disableEnforceFocus: true, // Allows interaction with the content behind
+              // }}
+            >
               <Sidebar setMobileOpen={setMobileOpen} />
-            </Box>
+            </Drawer>
           )}
         </nav>
       </div>

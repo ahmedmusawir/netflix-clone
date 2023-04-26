@@ -3,6 +3,12 @@ import { makeStyles } from '@mui/styles';
 const drawerWidth = 240;
 
 export default makeStyles((theme) => ({
+  sidebarContainer: {
+    // border: '3px dotted red',
+    position: 'relative',
+    zIndex: 10000,
+    background: 'white',
+  },
   toolbar: {
     height: '80px',
     display: 'flex',
@@ -12,6 +18,8 @@ export default makeStyles((theme) => ({
       marginLeft: '0',
       flexWrap: 'wrap',
     },
+    // position: 'relative',
+    // zIndex: -1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -24,9 +32,20 @@ export default makeStyles((theme) => ({
       width: drawerWidth,
       flexShrink: 0,
     },
+    zIndex: 1000,
   },
   drawerPaper: {
     width: drawerWidth,
+    // border: '1rem dotted red',
+  },
+  desktopDrawer: {
+    // position: 'relative',
+    // zIndex: 1000000000,
+    // border: '.5rem dotted blue',
+    // minHeight: '100vh',
+    minHeight: '300vh',
+    // boxShadow: '2px 2px 8px #e7e7e7',
+    boxShadow: '4px 0px 8px 0px #e7e7e7',
   },
   linkButton: {
     '&:hover': {
