@@ -8,19 +8,19 @@ import {
 import { useSelector } from 'react-redux';
 import { useGetMoviesQuery } from '../../services/TMDB';
 import { FeaturedMovie, MovieList, Pagination } from '../';
-import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
+// import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
 
 import useStyles from './styles';
 
 const Movies = () => {
   const [page, setPage] = useState(1);
-  const { genreIdOrCategoryName } = useSelector(
+  const { genreIdOrCategoryName, searchQuery } = useSelector(
     (state) => state.currentGenreOrCategory
   );
-  console.log('Genre in Movies.jsx:', genreIdOrCategoryName);
   const classes = useStyles();
   const { data, isFetching } = useGetMoviesQuery({
     genreIdOrCategoryName,
+    searchQuery,
     page,
   });
   //   console.log('Movies:', data);

@@ -10,8 +10,15 @@ export const tmdbApi = createApi({
   endpoints: (builder) => ({
     // Get Movies by Type
     getMovies: builder.query({
-      query: ({ genreIdOrCategoryName, page }) => {
-        console.log('Genre or Cat', genreIdOrCategoryName);
+      query: ({ genreIdOrCategoryName, searchQuery, page }) => {
+        // console.log('Genre or Cat', genreIdOrCategoryName);
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+        //* Get Movies by Search
+        if (searchQuery) {
+          return `/search/movie?query=${searchQuery}&page=${page}&api_key=${tmdbApiKey}`;
+        }
 
         // popular, top_rated, upcoming --> string
         if (
@@ -36,7 +43,14 @@ export const tmdbApi = createApi({
         return `/genre/movie/list?api_key=${tmdbApiKey}`;
       },
     }),
+
+    //* Get Movie
+    getMovie: builder.query({
+      query: (id) =>
+        `/movie/${id}?append_to_response=videos,credits&api_key=${tmdbApiKey}`,
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetGenresQuery } = tmdbApi;
+export const { useGetMoviesQuery, useGetGenresQuery, useGetMovieQuery } =
+  tmdbApi;
