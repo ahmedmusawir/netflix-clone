@@ -22,7 +22,7 @@ const Movie = ({ movie, i }) => {
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                : `https://www.fillmurray.com/200/300`
+                : `https://res.cloudinary.com/dyb0qa58h/image/upload/v1682665751/no-img-found_odygt4.png`
             }
             alt={movie.title}
           />

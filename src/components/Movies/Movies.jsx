@@ -24,6 +24,9 @@ const Movies = () => {
     page,
   });
   //   console.log('Movies:', data);
+  const lg = useMediaQuery((theme) => theme.breakpoints.only('lg'));
+  const numberOfMovies = lg ? 16 : 18;
+
   if (isFetching) {
     return (
       <Box display={'flex'} justifyContent={'center'}>
@@ -45,9 +48,13 @@ const Movies = () => {
   }
 
   return (
-    // <div className={classes.mainContainer}>
     <div>
-      <MovieList movies={data} />
+      <MovieList movies={data} numberOfMovies={numberOfMovies} />
+      <Pagination
+        currentPage={page}
+        setPage={setPage}
+        totalPages={data.total_pages}
+      />
     </div>
   );
 };
