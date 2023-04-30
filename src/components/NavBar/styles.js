@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     // border: '3px dotted red',
     position: 'relative',
     zIndex: 10000,
-    background: 'white',
+    // background: 'white',
   },
   toolbar: {
     height: '80px',

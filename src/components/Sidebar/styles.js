@@ -8,6 +8,8 @@ export default makeStyles((theme) => ({
   },
   image: {
     width: '70%',
+    filter: 'invert(1)',
+    marginTop: '-.5rem',
   },
   links: {
     color: theme.palette.text.primary,

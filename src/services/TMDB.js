@@ -66,6 +66,12 @@ export const tmdbApi = createApi({
       query: ({ id, page }) =>
         `/discover/movie?with_cast=${id}&page=${page}&api_key=${tmdbApiKey}`,
     }),
+
+    // Get user favorite list
+    getList: builder.query({
+      query: ({ listName, accountId, sessionId, page }) =>
+        `/account/${accountId}/${listName}?session_id=${sessionId}&page=${page}&api_key=${tmdbApiKey}`,
+    }),
   }),
 });
 
@@ -76,4 +82,5 @@ export const {
   useGetRecommendationsQuery,
   useGetActorsDetailsQuery,
   useGetMoviesByActorIdQuery,
+  useGetListQuery,
 } = tmdbApi;

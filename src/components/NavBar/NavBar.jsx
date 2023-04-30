@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   AppBar,
   IconButton,
@@ -21,16 +21,17 @@ import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { userSelector, setUser } from '../../features/auth';
+import { setUser } from '../../features/auth';
+import { ColorModeContext } from '../../contexts/ToggleColorMode';
 
 const NavBar = () => {
-  // const { isAuthenticated, user } = useSelector(userSelector);
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [mobileOpen, setMobileOpen] = useState(false);
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 600px)');
   const theme = useTheme();
   const dispatch = useDispatch();
+  const { colorMode, setMode, toggleColorMode } = useContext(ColorModeContext);
 
   const token = localStorage.getItem('moose_tmdb_request_token');
   const sessionIdFromLocalStorage = localStorage.getItem(
@@ -78,7 +79,7 @@ const NavBar = () => {
             </IconButton>
           )}
 
-          <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => {}}>
+          <IconButton color="inherit" sx={{ ml: 1 }} onClick={toggleColorMode}>
             {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
 

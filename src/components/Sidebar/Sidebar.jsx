@@ -52,7 +52,7 @@ const Sidebar = ({ setMobileOpen }) => {
     <div>
       <Link to={'/'} className={classes.imageLink}>
         <img
-          src={theme.palette.mode === 'light' ? redLogo : blueLogo}
+          src={theme.palette.mode === 'light' ? blueLogo : redLogo}
           alt="Filmpire Logo"
           className={classes.image}
         />
@@ -68,7 +68,7 @@ const Sidebar = ({ setMobileOpen }) => {
               <ListItemIcon>
                 <img
                   src={genresIcons[label.toLocaleLowerCase()]}
-                  className={classes.genreImages}
+                  className={classes.genreImage}
                   height={30}
                   alt="whatever"
                 />
@@ -87,7 +87,7 @@ const Sidebar = ({ setMobileOpen }) => {
               <ListItemIcon>
                 <img
                   src={genresIcons[name.toLowerCase()]}
-                  className={classes.genreImages}
+                  className={classes.genreImage}
                   height={30}
                   alt="whatever"
                 />
