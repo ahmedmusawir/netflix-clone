@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { CssBaseline } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import {
@@ -9,9 +9,14 @@ import {
   Profile,
 } from './components';
 import useStyles from './styles';
+import useAlan from './alan-ai/Alan';
+import { alanBtn } from '@alan-ai/alan-sdk-web';
 
 const App = () => {
   const classes = useStyles();
+  const alanBtnContainer = useRef();
+
+  useAlan();
 
   return (
     <div className={classes.root}>
@@ -29,6 +34,7 @@ const App = () => {
           <Route path="*" element="Not Found" />
         </Routes>
       </main>
+      <div ref={alanBtnContainer} />
     </div>
   );
 };
