@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from "react";
 import {
   AppBar,
   IconButton,
@@ -8,34 +8,35 @@ import {
   Avatar,
   useMediaQuery,
   Box,
-} from '@mui/material';
+} from "@mui/material";
 import {
   Menu,
   AccountCircle,
   Brightness4,
   Brightness7,
-} from '@mui/icons-material';
-import { Search, Sidebar } from '../';
-import { fetchToken, createSessionId, moviesApi } from '../../utils';
-import { useTheme } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
-import useStyles from './styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUser } from '../../features/auth';
-import { ColorModeContext } from '../../contexts/ToggleColorMode';
+} from "@mui/icons-material";
+import { Search, Sidebar } from "../";
+import { fetchToken, createSessionId, moviesApi } from "../../utils";
+import { useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
+import useStyles from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from "../../features/auth";
+import { ColorModeContext } from "../../contexts/ToggleColorMode";
 
 const NavBar = () => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const [mobileOpen, setMobileOpen] = useState(false);
   const classes = useStyles();
-  const isMobile = useMediaQuery('(max-width: 600px)');
+  const isMobile = useMediaQuery("(max-width: 600px)");
+  // const isMobile = useMediaQuery("(max-width: 725px)");
   const theme = useTheme();
   const dispatch = useDispatch();
   const { colorMode, setMode, toggleColorMode } = useContext(ColorModeContext);
 
-  const token = localStorage.getItem('moose_tmdb_request_token');
+  const token = localStorage.getItem("moose_tmdb_request_token");
   const sessionIdFromLocalStorage = localStorage.getItem(
-    'moose_tmdb_session_id'
+    "moose_tmdb_session_id"
   );
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const NavBar = () => {
           const { data: userData } = await moviesApi.get(
             `/account?session_id=${sessionIdFromLocalStorage}`
           );
-          console.log('Session Data:', userData);
+          console.log("Session Data:", userData);
 
           dispatch(setUser(userData));
         } else {
@@ -53,7 +54,7 @@ const NavBar = () => {
           const { data: userData } = await moviesApi.get(
             `/account?session_id=${sessionId}`
           );
-          console.log('Session Data:', userData);
+          console.log("Session Data:", userData);
 
           dispatch(setUser(userData));
         }
@@ -71,7 +72,7 @@ const NavBar = () => {
             <IconButton
               color="inherit"
               edge="start"
-              style={{ outline: 'none' }}
+              style={{ outline: "none" }}
               onClick={() => setMobileOpen((prevMobileOpen) => !prevMobileOpen)}
               className={classes.menuButton}
             >
@@ -80,7 +81,7 @@ const NavBar = () => {
           )}
 
           <IconButton color="inherit" sx={{ ml: 1 }} onClick={toggleColorMode}>
-            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness4 />}
+            {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
 
           {!isMobile && <Search />}

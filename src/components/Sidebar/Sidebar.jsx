@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   Divider,
   List,
@@ -9,14 +9,14 @@ import {
   Box,
   CircularProgress,
   ListItemButton,
-} from '@mui/material';
-import { Link } from 'react-router-dom';
-import { useGetGenresQuery } from '../../services/TMDB';
-import { useTheme } from '@mui/styles';
-import useStyles from './styles';
-import genresIcons from '../../assets/genres';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectGenreOrCategory } from '../../features/currentGenreOrCategory';
+} from "@mui/material";
+import { Link } from "react-router-dom";
+import { useGetGenresQuery } from "../../services/TMDB";
+import { useTheme } from "@mui/styles";
+import useStyles from "./styles";
+import genresIcons from "../../assets/genres";
+import { useDispatch, useSelector } from "react-redux";
+import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
 
 const Sidebar = ({ setMobileOpen }) => {
   const { genreIdOrCategoryName } = useSelector(
@@ -31,35 +31,35 @@ const Sidebar = ({ setMobileOpen }) => {
 
   if (isFetching) {
     return (
-      <Box display={'flex'} justifyContent={'center'}>
-        <CircularProgress size={'4rem'} />
+      <Box display={"flex"} justifyContent={"center"}>
+        <CircularProgress size={"4rem"} />
       </Box>
     );
   }
 
   const categories = [
-    { label: 'Popular', value: 'popular' },
-    { label: 'Top Rated', value: 'top_rated' },
-    { label: 'Upcoming', value: 'upcoming' },
+    { label: "Popular", value: "popular" },
+    { label: "Top Rated", value: "top_rated" },
+    { label: "Upcoming", value: "upcoming" },
   ];
 
   const redLogo =
-    'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
+    "https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png";
   const blueLogo =
-    'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png';
+    "https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png";
 
   return (
     <div>
-      <Link to={'/'} className={classes.imageLink}>
+      <Link to={"/"} className={classes.imageLink}>
         <img
-          src={theme.palette.mode === 'light' ? blueLogo : redLogo}
+          src={theme.palette.mode === "light" ? redLogo : blueLogo}
           alt="Filmpire Logo"
           className={classes.image}
         />
       </Link>
       <Divider />
       <List>
-        <ListSubheader>Categories</ListSubheader>
+        <ListSubheader sx={{ mt: "3rem" }}>Categories</ListSubheader>
         {categories.map(({ label, value }) => (
           <Link key={value} className={classes.links} to="/">
             <ListItemButton

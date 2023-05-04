@@ -1,22 +1,23 @@
-import React, { useRef } from 'react';
-import { CssBaseline } from '@mui/material';
-import { Route, Routes } from 'react-router-dom';
+import React, { useRef } from "react";
+import { CssBaseline } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
 import {
   Actors,
   MovieInformation,
   Movies,
   NavBar,
   Profile,
-} from './components';
-import useStyles from './styles';
-import useAlan from './alan-ai/Alan';
-import { alanBtn } from '@alan-ai/alan-sdk-web';
+} from "./components";
+import useStyles from "./styles";
+import useAlan from "./alan-ai/Alan";
+import useScrollToTop from "./utils/useScrollToTop";
 
 const App = () => {
   const classes = useStyles();
   const alanBtnContainer = useRef();
 
   useAlan();
+  useScrollToTop();
 
   return (
     <div className={classes.root}>
