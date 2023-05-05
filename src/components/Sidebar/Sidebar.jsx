@@ -29,6 +29,10 @@ const Sidebar = ({ setMobileOpen }) => {
   // console.log('A Genre:', genreIdOrCategoryName);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [genreIdOrCategoryName]);
+
   if (isFetching) {
     return (
       <Box display={"flex"} justifyContent={"center"}>

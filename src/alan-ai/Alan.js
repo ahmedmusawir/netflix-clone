@@ -28,7 +28,7 @@ const useAlan = () => {
             (g) => g.name.toLowerCase() === genreOrCategory.toLowerCase()
           );
 
-          // console.log("Genre by Alan:", foundGenre);
+          console.log("Genre by Alan:", foundGenre);
 
           if (foundGenre) {
             navigate("/");
@@ -38,7 +38,7 @@ const useAlan = () => {
               ? "top_rated"
               : genreOrCategory;
 
-            // console.log("Category by Alan:", category);
+            console.log("Category by Alan:", category);
 
             navigate("/");
             dispatch(selectGenreOrCategory(category));
