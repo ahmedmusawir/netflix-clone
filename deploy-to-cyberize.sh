@@ -1,11 +1,10 @@
 #!/usr/bin/bash
 
-LOCAL_PROJECT="portfolio-3d-react"
-PLESK_PROJECT="themoose.cyberizestaging.com"
+LOCAL_PROJECT="netflix-clone"
+PLESK_PROJECT="filmpire.cyberizestaging.com"
 
 # using gitbash on windows
-SOURCE="/c/Users/The Moose/c
-REACT_APPS_ON_WINDOWS/$LOCAL_PROJECT/dist"
+SOURCE="/c/REACT_APPS_ON_WINDOWS/$LOCAL_PROJECT/build"
 TARGET="root@cyberizestaging.com:/var/www/vhosts/cyberizestaging.com/$PLESK_PROJECT"
 REMOTE_FOLDER="/var/www/vhosts/cyberizestaging.com/$PLESK_PROJECT/*"
 

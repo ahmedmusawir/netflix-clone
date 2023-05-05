@@ -27,10 +27,12 @@ const Search = () => {
   //   }
   // };
 
-  useEffect(() => {
-    setQuery("");
-    dispatch(searchMovie("")); // Reset the search query in the Redux store
-  }, [location.pathname, dispatch]);
+  // useEffect(() => {
+  //   setQuery("");
+  //   dispatch(searchMovie("")); // Reset the search query in the Redux store
+  // }, [location.pathname, dispatch]);
+
+  if (location.pathname !== "/") return null;
 
   return (
     <div className={classes.searchContainer}>
